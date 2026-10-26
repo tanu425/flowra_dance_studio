@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply to join Flowra Dance Studio and find your rhythm.">
+  <meta name="theme-color" content="#5A1620">
+  <title>Membership | Flowra Dance Studio</title>
+
+  <!-- Flowra typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet used by index.html too -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="membership-page">
+  <!-- Header matches the main Flowra website structure -->
+  <header class="site-header" id="top">
+    <a href="index.html#home" class="brand" aria-label="Flowra home">
+      <span class="brand-symbol" aria-hidden="true">✳</span>
+      <span class="brand-name">FLOWRA<small>DANCE STUDIO</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Open navigation" aria-expanded="false" aria-controls="mainNav">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#dance-styles">Dance Styles</a>
+      <a href="membership.html" aria-current="page">Membership</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#wall-of-excellence">Wall of Excellence</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="#membership-form" class="nav-cta">Join Flowra <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Membership page intro -->
+    <section class="membership-hero">
+      <p class="eyebrow light">YOUR NEXT CHAPTER STARTS HERE</p>
+      <h1>Find Your <em>Rhythm.</em></h1>
+      <p>Tell us a little about yourself and the dance journey you want to begin. Our team can help you find a class that feels right for you.</p>
+    </section>
+
+    <!--
+      MEMBERSHIP APPLICATION FORM — no account/signup/login required.
+      The visitor enters their contact details and submits a request.
+      Supabase database connection will be added separately in the next step.
+    -->
+    <section class="membership-form-section form-section" id="membership-form">
+      <form class="membership-form" id="membershipForm">
+        <p class="eyebrow">LET'S GET TO KNOW YOU</p>
+        <h2>Membership Application</h2>
+        <p>Share your details below. Fields marked * are required.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full name *</label>
+            <input type="text" id="fullName" name="full_name" autocomplete="name" placeholder="Enter your full name" required maxlength="100">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone number *</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 98765 43210" required inputmode="tel" maxlength="20">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address *</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required maxlength="254">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="danceStyle">Dance style *</label>
+            <select id="danceStyle" name="dance_style" required>
+              <option value="" selected disabled>Choose a dance style</option>
+              <option value="western">Western Dance</option>
+              <option value="classical">Classical Dance</option>
+              <option value="folk">Folk Dance</option>
+              <option value="wedding_choreography">Wedding Choreography</option>
+              <option value="not_sure">Not sure yet — help me choose</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="preferredBatch">Preferred batch *</label>
+            <select id="preferredBatch" name="preferred_batch" required>
+              <option value="" selected disabled>Choose a time</option>
+              <option value="morning">Morning</option>
+              <option value="afternoon">Afternoon</option>
+              <option value="evening">Evening</option>
+              <option value="flexible">Flexible / discuss with me</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="experience">Your dance experience *</label>
+          <select id="experience" name="experience_level" required>
+            <option value="" selected disabled>Select your experience level</option>
+            <option value="beginner">Beginner — starting fresh</option>
+            <option value="some_experience">Some experience</option>
+            <option value="experienced">Experienced dancer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="goals">What would you like to learn? <span>(optional)</span></label>
+          <textarea id="goals" name="goals" rows="4" maxlength="1000" placeholder="Tell us about your goals, event, or anything you'd like us to know."></textarea>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="contactConsent" name="contact_consent" value="yes" required>
+          <label for="contactConsent">I agree that Flowra Dance Studio may contact me about this membership request. *</label>
+        </div>
+
+        <p class="form-note">Your details will be used by Flowra Dance Studio to respond to your membership enquiry. This demo form is not connected to the database yet, so details will not be saved.</p>
+        <p class="form-note" id="formStatus" role="status" aria-live="polite" hidden></p>
+
+        <button type="submit">Send Membership Request <span aria-hidden="true">↗</span></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer section-burgundy">
+    <div class="container footer-content">
+      <a href="index.html#home" class="footer-brand">
+        <span class="brand-symbol" aria-hidden="true">✳</span>
+        <span class="brand-name">FLOWRA<small>DANCE STUDIO</small></span>
+      </a>
+      <p class="footer-tagline">Dance. Express. Evolve.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#dance-styles">Dance Styles</a>
+        <a href="membership.html">Membership</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#wall-of-excellence">Wall of Excellence</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Flowra Dance Studio. Fictional portfolio demonstration.</p>
+    </div>
+  </footer>
+
+  <!-- Keep your shared menu/animation JavaScript here. -->
+  <script src="js/main.js"></script>
+
+  <!-- Temporary demo handler; replace this with the real Supabase submit flow later. -->
+  <script>
+    const membershipForm = document.querySelector('#membershipForm');
+    const formStatus = document.querySelector('#formStatus');
+
+    membershipForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formStatus.hidden = false;
+      formStatus.textContent = 'Demo only: your membership request has not been saved yet.';
+    });
+  </script>
+</body>
+</html>
